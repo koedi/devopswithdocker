@@ -1,0 +1,13 @@
+Exercise 1.3
+
+docker run -it devopsdockeruh/pull_exercise
+
+Browse to dockerhub and search for devopsdockeruh/pull_exercise
+
+type "basics"
+
+<message>
+Give me the password: basics
+You found the correct password. Secret message is:
+"This is the secret message"
+</>
