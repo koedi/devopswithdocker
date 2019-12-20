@@ -1,4 +1,4 @@
-## Comand to start container
+## Command to start container
 ```
 kpietika@lx9-fuxi195:~/Documents/Opinnot/Docker/part1/1.7$ docker run -it curler
 Input website:
