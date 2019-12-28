@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+    backend:
+      image: backend
+      ports:
+        - 8000:8000
+      environment:
+        - REDIS=redis
+        - DB_HOST=db
+        - DB_USERNAME=toor
+        - DB_PASSWORD=example
+
+    frontend:
+      image: frontend
+      ports:
+       - 5000:5000
+       
+    redis:
+      image: redis
+
+    db:
+      image: postgres
+      restart: always
+      environment:
+        POSTGRES_PASSWORD: example
+        POSTGRES_USER: toor
