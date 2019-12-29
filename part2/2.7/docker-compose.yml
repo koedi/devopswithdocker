@@ -1,0 +1,27 @@
+version: '3.5'
+
+services:
+    frontend:
+      image: kurkkumopo-frontend
+      #build: https://github.com/docker-hy/ml-kurkkumopo-frontend.git
+      #ei toiminut, joten git clone ja docker build lokaalisti
+      ports:
+        - 3000:3000
+
+    training:
+      image: kurkkumopo-training
+      build: https://github.com/docker-hy/ml-kurkkumopo-training.git
+      volumes:
+        - /tmp/imgs:/src/imgs
+        - /tmp/model:/src/model
+        - /tmp/data:/data
+
+    backend:
+      image: kurkkumopo-backend
+      build: https://github.com/docker-hy/ml-kurkkumopo-backend.git
+      ports:
+        - 5000:5000
+      depends_on:
+        - training
+      volumes:
+        - /tmp/model:/src/model
