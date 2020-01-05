@@ -13,6 +13,7 @@ RUN apt-get update && \
     useradd -m app && \
     chown app /backend-example-docker
 
+USER app
 
 WORKDIR ./backend-example-docker
 
