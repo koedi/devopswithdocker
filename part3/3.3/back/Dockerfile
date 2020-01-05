@@ -13,12 +13,12 @@ RUN apt-get update && \
     useradd -m app && \
     chown app /backend-example-docker
 
-USER app
-
 WORKDIR ./backend-example-docker
 
 RUN npm install
 
 EXPOSE 8000
+
+USER app
 
 CMD ["npm", "start"]
