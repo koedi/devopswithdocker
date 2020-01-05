@@ -13,12 +13,12 @@ RUN apt update && \
     useradd -m app && \
     chown app /frontend-example-docker
 
-USER app
-
 WORKDIR ./frontend-example-docker
 
 RUN npm install
 
 EXPOSE 5000
+
+USER app
 
 CMD ["npm","start"]
