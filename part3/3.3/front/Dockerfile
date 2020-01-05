@@ -13,6 +13,8 @@ RUN apt update && \
     useradd -m app && \
     chown app /frontend-example-docker
 
+USER app
+
 WORKDIR ./frontend-example-docker
 
 RUN npm install
