@@ -15,10 +15,10 @@ RUN apt-get update && \
 WORKDIR ./backend-example-docker
 RUN npm install
 
-EXPOSE 8000
-ENV FRONTURL=http://localhost:5000
-
 RUN chown -R app /backend-example-docker
 USER app
+
+EXPOSE 8000
+ENV FRONTURL=http://localhost:5000
 
 CMD ["npm", "start"]
