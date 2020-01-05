@@ -1,6 +1,5 @@
 FROM ubuntu:16.04
 
-COPY . .
 
 RUN apt update && \
     apt-get install -y git && \
@@ -11,14 +10,14 @@ RUN apt update && \
     apt-get purge -y --auto-remove curl && \
     rm -rf /var/lib/apt/lists/* && \
     useradd -m app && \
-    chown app /frontend-example-docker
+    chown app -R /frontend-example-docker
+
 
 WORKDIR ./frontend-example-docker
-
 RUN npm install
 
 EXPOSE 5000
-
+ENV API_URL=http://localhost:8000
 USER app
 
 CMD ["npm","start"]
